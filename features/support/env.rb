@@ -1,8 +1,11 @@
-require 'capybara/cucumber'
-require 'selenium-webdriver'
-require 'pry'
-require 'capybara'
+require "capybara"
+require "capybara/cucumber"
+require "selenium-webdriver"
 
-Capybara.default_driver = :selenium_chrome
+Capybara.configure do |config|
+    config.default_driver = :selenium
+    config.default_max_wait_time = 25
+end
 
-Capybara.default_max_wait_time = 10
+Capybara.page.driver.browser.manage.window.maximize
+
