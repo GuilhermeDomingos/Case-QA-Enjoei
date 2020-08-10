@@ -1,11 +1,3 @@
-![logo da enjoei](readme/enjoei.png)
-
-# Case de testes automatizados
-
-A implementação e manutenção de testes automatizados são práticas cotidianas fundamentais da equipe de QA de uma empresa. A medida em que novas funcionalidades surgem, a automação de testes ponta-a-ponta, simulando a experiência do usuário final, é fundamental para garantir que os requisitos do produto sejam atendidos.
-
-Nesse case, você terá a oportunidade de testar uma funcionalidade existente no site do enjoei.
-
 ## Configuração inicial
 
 Antes de tudo, baixe esse repositório em sua máquina.
@@ -38,49 +30,24 @@ Certifique-se de que você possui as seguintes dependências devidamente instala
 
   Por fim, execute `bundle install` para instalar o capybara, o cucumber e outras dependências do Ruby a partir do `Gemfile`.
 
-## Deu tudo certo?
+--------------------------------------------------------
 
-  Para verificar se você está pronto para começar o case, o seguinte comando deve realizar um teste que simplesmente acessa a homepage do enjoei e termina com sucesso.
+# # O que foi feito
 
-  `cucumber features/test_settings/test_settings.feature `
+## Item 1
+Foi implementado os em Ruby os passos descritos em BDD.
+Foi desenvolvida uma função para gerar um desconto aleatório e com isso, ser usado para a realização do teste de clicar em um desconto e verificar o valor maximo de desconto nos produtos.
 
-  Se tudo funciona, você deve ver algo assim:
+## Item 2
+Os cenários foram descritos de forma que validasse a funcionalidade de seguir lojinhas.
 
-  ```
-  Feature: User settings
+## Proximos passos
+Para que o projeto se torne o mais profissional, entendo que será necessário aplicar o page object, refatorar a forma de chamar os testes e melhorar a forma de chamar as funções.
+Buscar uma resolução para o item 1 (comparar o preço de desconto)
 
-  Scenario: Everything's good     # features/test_settings/test_settings.feature:2
-    Then I can access enjoei homepage # features/test_settings/test_settings_steps.rb:1
+## Observação
+## item 1
+Não foi possível comparar o valor de cada produto com o valor randômico selecionado.  
 
-1 scenario (1 passed)
-1 step (1 passed)
-```
-
-## O que a gente quer que você faça
-
-
-### item 1.
-
-O site do [enjoei](http://www.enjoei.com.br) apresenta em sua página inicial uma seção que geralmente tem o título **"é desconto que você quer?"** e nela são listadas algumas faixas de preços de produtos que estão a venda, permitindo assim que o usuário categorize a exibição de produtos segundo um _preço máximo_. 
-  ![seção de desconto](readme/desconto.png)
-  Nós queremos que você teste essa funcionalidade. No arquivo `features/max_price/max_price.feature` há uma descrição do teste no formato [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development). Seu trabalho é implementar em Ruby os passos descritos, utilizando [Capybara](https://github.com/teamcapybara/capybara#using-capybara-with-cucumber) para descrever o que deve acontecer em cada um deles. Se a etapa de configuração do ambiente funcionou, então você já instalou essa ferramenta em seu ambiente.
-
-  Seu teste deve escolher _aleatoriamente_ um dos preços máximos listados e então, ao clicar nesse preço, verificar se nenhum dos produtos tem preço que ultrapassa esse valor. Escreva seu código com clareza e organização. Sinta-se a vontade para modularizar o seu programa.
-
-
-### item 2.
-No enjoei, os usuários podem seguir uns aos outros através de suas lojinhas.
-
-![seguindo](readme/lista-seguidores.png)
-
-Queremos escrever um simples caso de teste para garantir a consistência da funcionalidade de seguir usuários no site. Para isso, queremos alguns cenários de testes que verifiquem:
-
-a) se um usuário **A** está seguindo um usuário **B**, então **A** é exibido na lista de seguidores de **B**, mostrada em sua lojinha.
-
-b) se um usuário **A** segue um usuário **B**, então **B** possui pelo menos um seguidor em sua lista.
-
-c) se um usuário **A** não segue um usuário **B**, então **B** não é listado na lista de lojas que **A** está seguindo.
-
-Para esse item, apenas descreva as especificações dos testes em BDD da maneira que você julgar mais adequada, no arquivo `features/follow/follow.feature`. Não é necessário programar os passos, só se você quiser 🙂️
-
-Bom trabalho! 🍀️
+A ideia era percorrer o array de produtos e validar se o campo desconto da div estava visivel, se estivesse visivel ele iria fazer a comparação com o valor MAX_PRICE, caso não estivesse visivel, ele iria pegar o valor principal do produto. 
+Para validar todos os produtos, a ideia era realizar um for após sair do array de produtos e se o botão PROXIMO estivesse habilitado chamaria o laço de repetição que foi feito anteriormente.
